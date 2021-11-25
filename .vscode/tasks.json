@@ -1,0 +1,49 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "G++: build program",
+            "windows":{
+                "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+                "args": [
+                    "-fdiagnostics-color=always",
+                    "-g",
+                    "${fileDirname}\\**.cpp",
+                    "-std=c++17",
+                    "-luser32",
+                    "-lgdi32",
+                    "-lopengl32",
+                    "-lgdiplus",
+                    "-lShlwapi",
+                    "-ldwmapi",
+                    "-lstdc++fs",
+                    "-o",
+                    "${workspaceRoot}\\main.exe"
+                ]
+            },
+            "linux":{
+                "command": "/usr/bin/g++ -fdiagnostics-color=always ./**.cpp -g -o ./main -std=c++17 -lpng -lGL -lX11 -pthread && echo \"Build Successful\" || echo \"Build Failed\""
+            },
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": [
+                "$gcc","$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "g++ compilation",
+            // "presentation": {
+            //     "echo": true,
+            //     "reveal": "always",
+            //     "focus": true,
+            //     "panel": "shared",
+            //     "showReuseMessage": false,
+            //     "clear": false
+            // }
+        }
+    ],
+    "version": "2.0.0"
+}
